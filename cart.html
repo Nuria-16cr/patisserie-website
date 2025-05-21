@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart - La Maison Patisserie</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">
+        <img src="assets/logo.svg" alt="La Maison Patisserie Logo" />
+      </div>
+      <div class="navbar-right">
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="product.html">Products</a>
+          <a href="index.html#about">About us</a>
+        </div>
+        <div class="nav-icons">
+          <img src="assets/search.svg" alt="Search" class="icon" />
+          <img src="assets/cart.svg" alt="Cart" class="icon" />
+        </div>
+      </div>
+    </nav>
+
+    <main class="cart-main">
+      <h1 class="cart-title">SHOPPING CART</h1>
+      <div class="cart-content">
+        <!-- Cart Items -->
+        <section class="cart-items">
+          <div class="cart-item">
+            <img
+              src="assets/chocolate-cake.jpg"
+              alt="Chocolate Cake"
+              class="cart-img"
+            />
+            <div class="cart-details">
+              <div class="cart-product-name">Chocolate Cake</div>
+              <div class="cart-product-price">$60</div>
+              <div class="cart-qty">
+                <button class="qty-btn">-</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn">+</button>
+              </div>
+            </div>
+            <div class="cart-subtotal">$60</div>
+          </div>
+          <div class="cart-item">
+            <img
+              src="assets/lemon-cheesecake.jpg"
+              alt="Lemon Cheesecake"
+              class="cart-img"
+            />
+            <div class="cart-details">
+              <div class="cart-product-name">Lemon Cheesecake</div>
+              <div class="cart-product-price">$55</div>
+              <div class="cart-qty">
+                <button class="qty-btn">-</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn">+</button>
+              </div>
+            </div>
+            <div class="cart-subtotal">$55</div>
+          </div>
+          <div class="cart-item">
+            <img
+              src="assets/passionfruit-cake.jpg"
+              alt="Passionfruit Cake"
+              class="cart-img"
+            />
+            <div class="cart-details">
+              <div class="cart-product-name">Passionfruit Cake</div>
+              <div class="cart-product-price">$65</div>
+              <div class="cart-qty">
+                <button class="qty-btn">-</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn">+</button>
+              </div>
+            </div>
+            <div class="cart-subtotal">$65</div>
+          </div>
+        </section>
+
+        <!-- Order Summary & Pickup Info -->
+        <aside class="cart-summary">
+          <div class="pickup-info">
+            <h2>PICK UP INFO</h2>
+            <div class="pickup-address">
+              304 Charman Road, Cheltenham, Melbourne, Australia
+            </div>
+            <div class="pickup-time">Tuesday 22 at 8:00 AM</div>
+            <div class="pickup-note">
+              Please note we do <b>NOT</b> do deliveries.<br />Apologies for the
+              inconvenience.
+            </div>
+          </div>
+          <div class="order-summary">
+            <div class="summary-row">
+              <span>Subtotal</span><span>$180</span>
+            </div>
+            <div class="summary-row"><span>GST</span><span>$9</span></div>
+            <div class="summary-row total">
+              <span>Order Total</span><span>$189</span>
+            </div>
+          </div>
+          <div class="order-comments">
+            <label for="comments">Order Comments</label>
+            <textarea id="comments" placeholder="Leave us a comment"></textarea>
+          </div>
+          <div class="cart-actions">
+            <button class="add-more">+ ADD MORE ITEMS</button>
+            <button class="continue-payment">CONTINUE TO PAYMENT</button>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </body>
+</html>
