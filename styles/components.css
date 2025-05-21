@@ -1,0 +1,155 @@
+/**
+ * COMPONENTS CSS - Based on Figma
+ * Uses variables from colours.css, spacing.css, typography.css
+ */
+
+/* --- BUTTONS --- */
+.button,
+.add-to-cart,
+.continue-payment {
+  display: inline-block;
+  font-family: var(--font-base);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-inverse);
+  background: var(--color-accent);
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: var(--space-xs) var(--space-lg);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(205, 147, 75, 0.08);
+  letter-spacing: 0.5px;
+}
+.button:hover,
+.add-to-cart:hover,
+.continue-payment:hover {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.read-more,
+.see-more {
+  display: inline-block;
+  font-family: var(--font-base);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-accent);
+  background: var(--color-bg-white);
+  border: 2px solid var(--color-accent);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xs) var(--space-lg);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  letter-spacing: 0.5px;
+}
+.read-more:hover,
+.see-more:hover {
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+}
+
+.tab {
+  font-family: var(--font-base);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-primary);
+  background: none;
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: var(--space-xs) var(--space-lg);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+.tab.active {
+  background: var(--color-bg-white);
+  border: 2px solid var(--color-accent);
+  color: var(--color-primary);
+}
+.tab:hover:not(.active) {
+  color: var(--color-accent);
+}
+
+.qty-btn {
+  font-family: var(--font-base);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  background: var(--color-bg-white);
+  border: 2px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+.qty-btn:hover {
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+}
+
+/* --- CARDS --- */
+.card,
+.product-card {
+  background: var(--color-bg-white);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 4px 24px rgba(205, 147, 75, 0.08);
+  border: 2px solid var(--color-accent);
+  overflow: hidden;
+  padding: var(--space-lg);
+  transition: box-shadow 0.2s;
+}
+.card:hover,
+.product-card:hover {
+  box-shadow: 0 8px 32px rgba(205, 147, 75, 0.16);
+}
+
+/* --- INPUTS & TEXTAREAS --- */
+.input,
+input[type="text"],
+input[type="email"],
+input[type="number"],
+textarea {
+  font-family: var(--font-base);
+  font-size: var(--font-size-base);
+  color: var(--color-text-main);
+  background: var(--color-bg-white);
+  border: 1.5px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  padding: var(--space-xs) var(--space-md);
+  margin-bottom: var(--space-sm);
+  transition: border 0.2s;
+  outline: none;
+  resize: vertical;
+}
+.input:focus,
+input:focus,
+textarea:focus {
+  border-color: var(--color-primary);
+}
+
+/* --- BADGES, LABELS, ETC. --- */
+.badge {
+  display: inline-block;
+  font-family: var(--font-base);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-inverse);
+  background: var(--color-primary);
+  border-radius: var(--radius-sm);
+  padding: 2px 10px;
+  letter-spacing: 0.5px;
+}
+
+/* --- MISC --- */
+.divider {
+  height: 2px;
+  background: var(--color-accent);
+  border: none;
+  margin: var(--space-lg) 0;
+  width: 100%;
+  border-radius: var(--radius-xs);
+}

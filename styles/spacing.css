@@ -1,0 +1,129 @@
+:root {
+  /* Spacing Scale (based on Figma) */
+  --space-xxs: 4px;
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+  --space-xxl: 64px;
+  --space-section: 80px;
+
+  /* Border Radius */
+  --radius-xs: 4px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 40px;
+
+  /* Gaps */
+  --gap-xs: 8px;
+  --gap-sm: 16px;
+  --gap-md: 24px;
+  --gap-lg: 32px;
+  --gap-xl: 48px;
+
+  /* Max Widths */
+  --max-width-content: 1200px;
+  --max-width-section: 1400px;
+}
+
+/* Utility Classes for Margin */
+.m-xs {
+  margin: var(--space-xs) !important;
+}
+.m-sm {
+  margin: var(--space-sm) !important;
+}
+.m-md {
+  margin: var(--space-md) !important;
+}
+.m-lg {
+  margin: var(--space-lg) !important;
+}
+.m-xl {
+  margin: var(--space-xl) !important;
+}
+.mt-section {
+  margin-top: var(--space-section) !important;
+}
+.mb-section {
+  margin-bottom: var(--space-section) !important;
+}
+
+/* Utility Classes for Padding */
+.p-xs {
+  padding: var(--space-xs) !important;
+}
+.p-sm {
+  padding: var(--space-sm) !important;
+}
+.p-md {
+  padding: var(--space-md) !important;
+}
+.p-lg {
+  padding: var(--space-lg) !important;
+}
+.p-xl {
+  padding: var(--space-xl) !important;
+}
+.pt-section {
+  padding-top: var(--space-section) !important;
+}
+.pb-section {
+  padding-bottom: var(--space-section) !important;
+}
+
+/* Utility Classes for Gap (for flex/grid) */
+.gap-xs {
+  gap: var(--gap-xs) !important;
+}
+.gap-sm {
+  gap: var(--gap-sm) !important;
+}
+.gap-md {
+  gap: var(--gap-md) !important;
+}
+.gap-lg {
+  gap: var(--gap-lg) !important;
+}
+.gap-xl {
+  gap: var(--gap-xl) !important;
+}
+
+/* Border Radius Utility */
+.radius-xs {
+  border-radius: var(--radius-xs) !important;
+}
+.radius-sm {
+  border-radius: var(--radius-sm) !important;
+}
+.radius-md {
+  border-radius: var(--radius-md) !important;
+}
+.radius-lg {
+  border-radius: var(--radius-lg) !important;
+}
+.radius-xl {
+  border-radius: var(--radius-xl) !important;
+}
+
+/* Section Spacing */
+.section {
+  padding-top: var(--space-section);
+  padding-bottom: var(--space-section);
+}
+
+@media (max-width: 900px) {
+  :root {
+    --space-section: 48px;
+    --space-xl: 32px;
+    --space-lg: 24px;
+    --space-md: 16px;
+    --space-sm: 8px;
+    --space-xs: 4px;
+    --radius-xl: 24px;
+    --radius-lg: 16px;
+    --radius-md: 10px;
+  }
+}

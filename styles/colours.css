@@ -1,0 +1,32 @@
+:root {
+  /* Brand & Primary Colors */
+  --color-primary: #8b0214; /* Deep Red - h2, some SVGs, nav links */
+  --color-accent: #cd934b; /* Gold - buttons, borders, accents */
+
+  /* Text Colors */
+  --color-text-main: #0d0907; /* Main text, h1, paragraphs */
+  --color-text-inverse: #ffffff; /* For text on dark backgrounds */
+
+  /* Backgrounds */
+  --color-bg-main: #f2eddf; /* Main website background */
+  --color-bg-footer: #d8ae77; /* Footer background */
+  --color-bg-white: #ffffff; /* Cards, modals, etc. */
+
+  /* Neutrals & Utility */
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e0e0e0;
+  --color-neutral-300: #d8ae77; /* Also used as footer bg */
+  --color-neutral-900: #0d0907; /* For strong contrast */
+
+  /* Status Colors (optional, for future use) */
+  --color-success: #4caf50;
+  --color-error: #f44336;
+  --color-warning: #ff9800;
+  --color-info: #2196f3;
+}
+
+/* Example usage:
+   color: var(--color-primary);
+   background: var(--color-bg-main);
+   border-color: var(--color-accent);
+*/
