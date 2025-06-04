@@ -153,3 +153,33 @@ textarea:focus {
   width: 100%;
   border-radius: var(--radius-xs);
 }
+
+.button-ghost,
+.button-ghost-right {
+  background: transparent;
+  color: var(--color-text-main);
+  border: 2px solid var(--color-accent);
+  border-radius: var(--radius-lg);
+  font-family: var(--font-base);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  padding: var(--space-xs) var(--space-lg);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  letter-spacing: 0.5px;
+}
+.button-ghost:hover,
+.button-ghost:focus,
+.button-ghost-right:hover,
+.button-ghost-right:focus {
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+}
+.button-ghost-right {
+  display: inline-block;
+  margin-left: auto;
+  padding: var(--space-xxs) var(--space-md);
+  font-size: var(--font-size-xs);
+  vertical-align: middle;
+  margin-top: -8px;
+}

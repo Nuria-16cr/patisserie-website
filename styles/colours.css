@@ -18,6 +18,9 @@
   --color-neutral-300: #d8ae77; /* Also used as footer bg */
   --color-neutral-900: #0d0907; /* For strong contrast */
 
+  /* Shadow */
+  --color-shadow: rgba(0, 0, 0, 0.06);
+
   /* Status Colors (optional, for future use) */
   --color-success: #4caf50;
   --color-error: #f44336;
