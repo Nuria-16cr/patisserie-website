@@ -39,28 +39,29 @@
         </div>
       </section>
       <section>
-        <img
-          src="assets/bread-dust.jpg"
-          alt="Bread Dust"
-          class="about-img-angled"
-          style="
-            width: 320px;
-            float: left;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-            margin-right: 48px;
-          "
-        />
-        <div>
-          <h2>ABOUT US</h2>
-          <p>
-            La Maison Patisserie established by later 2011 in Cheltenham
-            Melbourne.<br />All the products are handmade from scratch with
-            premium ingredients by professional pastry chef. Our aim just
-            tradition simple, premium quality cakes and pastries.
-          </p>
+        <div class="about-section">
+          <img
+            src="assets/bread-dust.jpg"
+            alt="Bread Dust"
+            class="about-img-angled"
+            style="
+              width: 320px;
+              box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+              margin-right: 48px;
+            "
+          />
+          <div class="about-text">
+            <h2>ABOUT US</h2>
+            <p>
+              La Maison Patisserie established by later 2011 in Cheltenham
+              Melbourne.<br />All the products are handmade from scratch with
+              premium ingredients by professional pastry chef. Our aim just
+              tradition simple, premium quality cakes and pastries.
+            </p>
+          </div>
         </div>
       </section>
-      <section>
+      <section class="best-seller-section">
         <div class="section-header-row">
           <h2>BEST SELLERS</h2>
           <button class="button-ghost-right">View All Products</button>
@@ -73,9 +74,12 @@
           "
         >
           <figure>
-            <img src="assets/chocolate-cake.jpg" alt="Chocolate Cake" />
+            <img src="assets/chocolate-cake1.png" alt="Chocolate Cake" />
             <figcaption>
-              <strong>Chocolate Cake</strong> <span>$60</span>
+              <div class="figcaption-title-row">
+                <strong>Chocolate Cake</strong>
+                <strong>$60</strong>
+              </div>
               <p>
                 Decadent layers of rich chocolate sponge stacked with silky
                 cocoa ganache and a hint of espresso.
@@ -84,9 +88,12 @@
             </figcaption>
           </figure>
           <figure>
-            <img src="assets/lemon-crepe.jpg" alt="Lemon Crepe Cake" />
+            <img src="assets/lemon-crepe1.png" alt="Lemon Crepe Cake" />
             <figcaption>
-              <strong>Lemon Crepe Cake</strong> <span>$45</span>
+              <div class="figcaption-title-row">
+                <strong>Lemon Crepe Cake</strong>
+                <strong>$45</strong>
+              </div>
               <p>
                 Delicate layers of handmade crêpes stacked with zesty lemon
                 cream and a hint of vanilla.
@@ -97,7 +104,10 @@
           <figure>
             <img src="assets/lemon-cheesecake.jpg" alt="Lemon Cheesecake" />
             <figcaption>
-              <strong>Lemon Cheesecake</strong> <span>$55</span>
+              <div class="figcaption-title-row">
+                <strong>Lemon Cheesecake</strong>
+                <strong>$55</strong>
+              </div>
               <p>
                 Creamy layers of zesty lemon cheesecake nestled on a buttery
                 biscuit base and finished with a hint of vanilla.
@@ -106,9 +116,12 @@
             </figcaption>
           </figure>
           <figure>
-            <img src="assets/passionfruit-cake.jpg" alt="Passionfruit Cake" />
+            <img src="assets/passionfruit-cake1.png" alt="Passionfruit Cake" />
             <figcaption>
-              <strong>Passionfruit Cake</strong> <span>$65</span>
+              <div class="figcaption-title-row">
+                <strong>Passionfruit Cake</strong>
+                <strong>$65</strong>
+              </div>
               <p>
                 Buttery shortcrust pastry filled with smooth passionfruit curd
                 and a hint of citrus, topped with fresh pulp for a vibrant
@@ -119,21 +132,11 @@
           </figure>
         </div>
       </section>
-      <section>
+      <section class="why-choose-section">
         <h2>WHY CHOOSE US</h2>
-        <div
-          style="
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 32px;
-          "
-        >
+        <div class="why-choose-grid">
           <div>
-            <img
-              src="assets/icon-fresh.svg"
-              alt="Fresh Product"
-              style="width: 48px; height: 48px"
-            />
+            <img src="assets/icon-fresh.svg" alt="Fresh Product" />
             <h3>FRESH PRODUCT</h3>
             <p>
               Our cakes are made from tried & true recipes. We use the freshest
@@ -142,11 +145,7 @@
             </p>
           </div>
           <div>
-            <img
-              src="assets/icon-taste.svg"
-              alt="Tasty & Delicious"
-              style="width: 48px; height: 48px"
-            />
+            <img src="assets/icon-taste.svg" alt="Tasty & Delicious" />
             <h3>TASTY & DELICIOUS</h3>
             <p>
               Quality cakes are works of art and take time. Are you looking for
@@ -154,11 +153,7 @@
             </p>
           </div>
           <div>
-            <img
-              src="assets/icon-chef.svg"
-              alt="Expert Chef"
-              style="width: 48px; height: 48px"
-            />
+            <img src="assets/icon-chef.svg" alt="Expert Chef" />
             <h3>EXPERT CHEF</h3>
             <p>
               Years of working for other great decorators who had fabulous work
@@ -168,11 +163,7 @@
             </p>
           </div>
           <div>
-            <img
-              src="assets/icon-value.svg"
-              alt="Value"
-              style="width: 48px; height: 48px"
-            />
+            <img src="assets/icon-value.svg" alt="Value" />
             <h3>VALUE</h3>
             <p>
               When you purchase from the La Maison Patisserie, you can rest
@@ -183,50 +174,65 @@
           </div>
         </div>
       </section>
-      <section>
+    </main>
+    <section class="get-in-touch-section">
+      <div class="get-in-touch-img-col">
         <img
           src="assets/crepe-slice.jpg"
           alt="Crepe Slice"
-          style="
-            width: 320px;
-            float: left;
-            border-radius: 24px;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-            margin-right: 48px;
-          "
+          class="about-img-angled"
         />
-        <div>
-          <h2>GET IN TOUCH</h2>
-          <h3>OPENING HOURS</h3>
-          <div>
-            <span>Monday</span> <span>Closed</span><br />
-            <span>Tuesday - Friday</span> <span>8:30AM - 5PM</span><br />
-            <span>Saturday</span> <span>8:30AM - 4PM</span><br />
-            <span>Sunday</span> <span>8:30AM - 3PM</span>
+      </div>
+      <div class="get-in-touch-content">
+        <h2 class="get-in-touch-title">GET IN TOUCH</h2>
+        <div class="get-in-touch-block">
+          <h3 class="get-in-touch-subtitle">OPENING HOURS</h3>
+          <div class="get-in-touch-hours">
+            <div class="get-in-touch-row">
+              <span>Monday</span><span>Closed</span>
+            </div>
+            <div class="get-in-touch-row">
+              <span>Tuesday - Friday</span><span>8:30AM - 5PM</span>
+            </div>
+            <div class="get-in-touch-row">
+              <span>Saturday</span><span>8:30AM - 4PM</span>
+            </div>
+            <div class="get-in-touch-row">
+              <span>Sunday</span><span>8:30AM - 3PM</span>
+            </div>
           </div>
-          <h3>LOCATION</h3>
-          <p>304 Charman Road, Cheltenham, Melbourne, Australia</p>
-          <p>
-            <img
-              src="assets/phone.svg"
-              style="width: 18px; vertical-align: middle"
-              alt="Phone"
-            />
-            Call: 03 9585 4555
-          </p>
-          <p>
-            <img
-              src="assets/mail.svg"
-              style="width: 18px; vertical-align: middle"
-              alt="Email"
-            />
-            <a href="mailto:info@lmpatisserie.com.au"
-              >info@lmpatisserie.com.au</a
-            >
-          </p>
         </div>
-      </section>
-    </main>
+        <div class="get-in-touch-block">
+          <h3 class="get-in-touch-subtitle">LOCATION</h3>
+          <div class="get-in-touch-location">
+            304 Charman Road, Cheltenham, Melbourne, Australia
+          </div>
+          <div class="get-in-touch-contact">
+            <div class="get-in-touch-contact-row">
+              <img
+                src="assets/phone.svg"
+                alt="Phone"
+                class="get-in-touch-icon"
+              />
+              <span>Call: 03 9585 4555</span>
+            </div>
+            <div class="get-in-touch-contact-row">
+              <img
+                src="assets/mail.svg"
+                alt="Email"
+                class="get-in-touch-icon"
+              />
+              <span
+                >Email:
+                <a href="mailto:info@lmpatisserie.com.au"
+                  >info@lmpatisserie.com.au</a
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <footer class="main-footer">
       <div class="footer-row footer-main">
         <img
