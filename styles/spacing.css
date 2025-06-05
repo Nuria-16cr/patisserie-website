@@ -127,3 +127,23 @@
     --radius-md: 10px;
   }
 }
+
+.shadow-lg {
+  box-shadow: var(--shadow-lg) !important;
+}
+.w-320 {
+  width: 320px !important;
+}
+.m-r-xl {
+  margin-right: var(--space-xl) !important;
+}
+.w-27 {
+  width: 27px !important;
+}
+.h-27 {
+  height: 27px !important;
+}
+.flex-col {
+  display: flex !important;
+  flex-direction: column !important;
+}

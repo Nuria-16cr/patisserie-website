@@ -9,17 +9,18 @@
 
   /* Backgrounds */
   --color-bg-main: #f2eddf; /* Main website background */
-  --color-bg-footer: #d8ae77; /* Footer background */
+  --color-bg-footer: #e2c7a0; /* Footer background */
   --color-bg-white: #ffffff; /* Cards, modals, etc. */
 
   /* Neutrals & Utility */
   --color-neutral-100: #f5f5f5;
   --color-neutral-200: #e0e0e0;
-  --color-neutral-300: #d8ae77; /* Also used as footer bg */
+  --color-neutral-300: #d8ae77; /* saturated footer colour */
   --color-neutral-900: #0d0907; /* For strong contrast */
 
   /* Shadow */
   --color-shadow: rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 4px 24px var(--color-shadow);
 
   /* Status Colors (optional, for future use) */
   --color-success: #4caf50;
@@ -27,9 +28,3 @@
   --color-warning: #ff9800;
   --color-info: #2196f3;
 }
-
-/* Example usage:
-   color: var(--color-primary);
-   background: var(--color-bg-main);
-   border-color: var(--color-accent);
-*/
