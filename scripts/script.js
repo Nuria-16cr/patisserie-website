@@ -4,37 +4,33 @@ document.addEventListener("DOMContentLoaded", function () {
   const searchBtn = document.querySelector(".nav-search");
   const searchBar = document.querySelector(".nav-search-bar");
   const searchInput = document.querySelector(".search-input");
-  const searchForm = document.querySelector(".nav-search-bar");
   const navRight = document.querySelector(".nav-right");
 
-  // Ensure nav-right is position: relative for absolute positioning inside
-  if (navRight) {
-    navRight.style.position = "relative";
-  }
+  if (navRight) navRight.style.position = "relative";
 
-  // Add a message element for feedback (inside the search bar)
-  let searchMsg = document.createElement("div");
-  searchMsg.className = "search-message";
-  searchMsg.style.margin = "4px 0 0 0";
-  searchMsg.style.color = "red";
-  searchMsg.style.fontSize = "0.9em";
+  // Feedback message
+  const searchMsg = Object.assign(document.createElement("div"), {
+    className: "search-message",
+    style: "margin:4px 0 0 0;color:red;font-size:0.9em;",
+  });
   searchBar.appendChild(searchMsg);
 
-  // Dropdown for search results (append as child of searchBar)
-  let dropdown = document.createElement("div");
-  dropdown.className = "search-dropdown";
-  dropdown.style.display = "none";
+  // Dropdown for search results
+  const dropdown = Object.assign(document.createElement("div"), {
+    className: "search-dropdown",
+    style: "display:none;",
+  });
   searchBar.appendChild(dropdown);
 
-  // Toggle search bar visibility
-  searchBtn.addEventListener("click", function (e) {
+  // Toggle search bar
+  searchBtn.addEventListener("click", (e) => {
     e.stopPropagation();
     searchBar.style.display = "flex";
     searchInput.focus();
   });
 
-  // Hide search bar and dropdown when clicking outside
-  document.addEventListener("click", function (e) {
+  // Hide on outside click
+  document.addEventListener("click", (e) => {
     if (!searchBar.contains(e.target) && !searchBtn.contains(e.target)) {
       searchBar.style.display = "none";
       searchMsg.textContent = "";
@@ -42,43 +38,61 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Show dropdown results as user types
-  searchInput.addEventListener("input", function () {
-    const query = searchInput.value.trim().toLowerCase();
-    showDropdownResults(query);
+  // Show dropdown as user types
+  searchInput.addEventListener("input", () => {
+    showDropdownResults(searchInput.value.trim().toLowerCase());
     searchMsg.textContent = "";
   });
 
-  // Also show dropdown on submit (for enter key)
-  searchForm.addEventListener("submit", function (e) {
+  // Show dropdown on submit
+  searchBar.addEventListener("submit", (e) => {
     e.preventDefault();
     const query = searchInput.value.trim().toLowerCase();
     showDropdownResults(query);
-    if (!query) {
-      searchMsg.textContent = "";
-    } else if (dropdown.innerHTML === "") {
-      searchMsg.textContent = "No products found.";
-    } else {
-      searchMsg.textContent = "";
-    }
+    searchMsg.textContent = !query
+      ? ""
+      : dropdown.innerHTML === ""
+      ? "No products found."
+      : "";
   });
+
+  function getProductElements() {
+    let els = Array.from(document.querySelectorAll(".best-seller-grid figure"));
+    if (els.length) return { els, type: "home" };
+    els = Array.from(document.querySelectorAll(".products-grid .product-row"));
+    return { els, type: "products" };
+  }
+
+  function extractProductInfo(el, type) {
+    if (type === "home") {
+      return {
+        img: el.querySelector("img"),
+        title:
+          el.querySelector(".figcaption-title-row strong:first-child")
+            ?.textContent || "",
+        price:
+          el.querySelector(".figcaption-title-row strong:last-child")
+            ?.textContent || "",
+        text: el.textContent.toLowerCase(),
+      };
+    } else {
+      return {
+        img: el.querySelector("img"),
+        title: el.querySelector(".product-header-row h2")?.textContent || "",
+        price:
+          el.querySelector(".product-header-row .product-price")?.textContent ||
+          "",
+        text: el.textContent.toLowerCase(),
+      };
+    }
+  }
 
   function showDropdownResults(query) {
     dropdown.innerHTML = "";
-    // Try to find products in .best-seller-grid (Home) or .products-grid .product-row (Products)
-    let productElements = Array.from(
-      document.querySelectorAll(".best-seller-grid figure")
-    );
-    if (productElements.length === 0) {
-      // Try .product-row for Products page
-      productElements = Array.from(
-        document.querySelectorAll(".products-grid .product-row")
-      );
-    }
-    if (productElements.length === 0) {
-      // No products on this page
+    const { els: productElements, type } = getProductElements();
+    if (!productElements.length) {
       dropdown.innerHTML =
-        "<div style='padding: 12px; color: #888;'>No products to search on this page.</div>";
+        "<div style='padding:12px;color:#888;'>No products to search on this page.</div>";
       dropdown.style.display = "block";
       return;
     }
@@ -86,48 +100,26 @@ document.addEventListener("DOMContentLoaded", function () {
       dropdown.style.display = "none";
       return;
     }
-    let found = false;
+    let count = 0;
     productElements.forEach((el) => {
-      let text = "";
-      let img = null,
-        title = "",
-        price = "";
-      // Home page product card
-      if (el.matches("figure")) {
-        text = el.textContent.toLowerCase();
-        img = el.querySelector("img");
-        const t = el.querySelector(".figcaption-title-row strong:first-child");
-        const p = el.querySelector(".figcaption-title-row strong:last-child");
-        title = t ? t.textContent : "";
-        price = p ? p.textContent : "";
-      } else {
-        // Products page .product-row
-        text = el.textContent.toLowerCase();
-        img = el.querySelector("img");
-        const t = el.querySelector(".product-header-row h2");
-        const p = el.querySelector(".product-header-row .product-price");
-        title = t ? t.textContent : "";
-        price = p ? p.textContent : "";
-      }
+      const { img, title, price, text } = extractProductInfo(el, type);
       if (text.includes(query)) {
-        found = true;
-        const card = document.createElement("div");
-        card.className = "dropdown-product-card";
-        card.innerHTML = `
-          <div class="dropdown-product-img-wrap">
-            <img src="${img ? img.src : ""}" alt="${img ? img.alt : ""}" />
+        count++;
+        dropdown.innerHTML += `
+          <div class="dropdown-product-card">
+            <div class="dropdown-product-img-wrap">
+              <img src="${img?.src || ""}" alt="${img?.alt || ""}" />
+            </div>
+            <div class="dropdown-product-title">${title}</div>
+            <div class="dropdown-product-price">${price}</div>
           </div>
-          <div class="dropdown-product-title">${title}</div>
-          <div class="dropdown-product-price">${price}</div>
         `;
-        dropdown.appendChild(card);
       }
     });
-    dropdown.style.display = found ? "block" : "none";
-    if (!found) {
+    if (!count) {
       dropdown.innerHTML =
-        "<div style='padding: 12px; color: #888;'>No products found.</div>";
-      dropdown.style.display = "block";
+        "<div style='padding:12px;color:#888;'>No products found.</div>";
     }
+    dropdown.style.display = "block";
   }
 });
