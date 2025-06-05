@@ -113,7 +113,8 @@ section {
   flex: none;
 }
 .about-section h2,
-.best-seller-section h2 {
+.best-seller-section h2,
+.get-in-touch-title {
   font-family: var(--font-heading);
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);
@@ -278,10 +279,7 @@ figcaption button:focus {
   flex-direction: column;
   justify-content: flex-start;
 }
-.get-in-touch-title {
-  color: var(--color-primary);
-  letter-spacing: 2px;
-}
+
 .get-in-touch-subtitle {
   color: var(--color-text-main);
   margin: 16px 0 5px 0;

@@ -1,0 +1,109 @@
+/* Search bar and dropdown styles */
+
+.nav-right {
+  position: relative !important;
+}
+
+.nav-search-bar {
+  background: none;
+  box-shadow: none;
+  border: none;
+  position: absolute;
+  top: 80px;
+  right: 4px; /* why is it not fully to the right? there is a big gap */
+  max-width: 320px;
+  min-width: 220px;
+  width: 100%;
+  z-index: 1001;
+  justify-content: flex-end;
+  display: none;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.search-input {
+  width: 100%;
+  padding: 6px 14px;
+  font-size: 0.95em;
+  height: 32px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  background: #f2eddf;
+  box-sizing: border-box;
+}
+
+.search-dropdown {
+  position: absolute;
+  right: 0;
+  left: auto;
+  top: 40px;
+  z-index: 1000;
+  background: #f2eddf;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  margin-top: 0;
+  padding: 8px 0;
+  max-height: 220px;
+  overflow-y: auto;
+  min-width: 220px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.dropdown-product-card {
+  background: #fff;
+  margin: 0 8px 8px 8px;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-width: 0;
+  width: calc(100% - 16px);
+  gap: 10px;
+}
+
+.dropdown-product-img-wrap {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.dropdown-product-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dropdown-product-title {
+  font-size: 1em;
+  font-weight: 600;
+  color: #222;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dropdown-product-price {
+  font-size: 0.95em;
+  font-weight: 500;
+  color: #7a5c2e;
+  margin-left: 8px;
+  flex-shrink: 0;
+}
+
+.dropdown-product-card:last-child {
+  margin-bottom: 0;
+}

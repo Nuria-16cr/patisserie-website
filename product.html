@@ -22,11 +22,7 @@
         <a href="index.html">Home</a>
         <a href="product.html" class="active">Products</a>
         <a href="about.html">About us</a>
-        <button
-          class="icon nav-search"
-          aria-label="Search"
-          onclick="document.querySelector('.nav-search-bar').classList.toggle('show')"
-        >
+        <button class="icon nav-search" aria-label="Search">
           <svg
             width="24"
             height="24"
@@ -42,6 +38,9 @@
             />
           </svg>
         </button>
+        <form class="nav-search-bar">
+          <input type="text" placeholder="Search..." class="search-input" />
+        </form>
         <a href="cart.html" class="icon nav-cart" aria-label="Cart">
           <svg
             width="24"
@@ -67,10 +66,6 @@
           </svg>
         </a>
       </div>
-      <form class="nav-search-bar" style="display: none">
-        <input type="text" placeholder="Search..." class="search-input" />
-        <button type="submit" class="search-btn">Go</button>
-      </form>
     </nav>
 
     <header class="product-header">
@@ -284,10 +279,11 @@
       </div>
       <hr class="footer-divider" />
       <nav class="footer-nav">
-        <a href="index.html" class="active">Home</a>
-        <a href="product.html">Products</a>
+        <a href="index.html">Home</a>
+        <a href="product.html" class="active">Products</a>
         <a href="about.html">About us</a>
       </nav>
     </footer>
   </body>
+  <script src="scripts/script.js"></script>
 </html>
