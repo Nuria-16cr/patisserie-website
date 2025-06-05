@@ -3,6 +3,25 @@
  * Uses variables from colours.css, spacing.css, typography.css
  */
 
+:root {
+  --button-primary-bg: var(--color-accent);
+  --button-primary-color: var(--color-text-inverse);
+  --button-primary-border: 2px solid var(--color-accent);
+  --button-primary-radius: 40px;
+  --button-primary-font-size: 13px;
+  --button-primary-font-weight: 500;
+  --button-primary-hover-bg: var(--color-primary);
+  --button-primary-hover-color: var(--color-text-inverse);
+  --button-secondary-bg: transparent;
+  --button-secondary-color: var(--color-text-main);
+  --button-secondary-border: 2px solid var(--color-accent);
+  --button-secondary-radius: 40px;
+  --button-secondary-font-size: 13px;
+  --button-secondary-font-weight: 500;
+  --button-secondary-hover-bg: var(--color-accent);
+  --button-secondary-hover-color: var(--color-text-inverse);
+}
+
 /* --- BUTTONS --- */
 .button,
 .add-to-cart,
@@ -182,4 +201,214 @@ textarea:focus {
   font-size: var(--font-size-xs);
   vertical-align: middle;
   margin-top: -8px;
+}
+
+/* NAV */
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-xl) var(--space-xxl) 0 var(--space-xxl);
+  background: var(--color-bg-main);
+  font-family: var(--font-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+}
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-xl);
+}
+.nav-left img {
+  height: 70px;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-xl);
+}
+.nav-right a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-base);
+  font-family: var(--font-base);
+  transition: color 0.2s;
+}
+.nav-right a:hover {
+  color: var(--color-accent);
+}
+.main-nav .active {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+}
+.icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  cursor: pointer;
+}
+.nav-search,
+.nav-cart {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+  color: var(--color-primary);
+}
+.nav-search.active,
+.nav-cart.active,
+.nav-search:hover,
+.nav-cart:hover {
+  color: var(--color-accent);
+}
+.nav-search img,
+.nav-cart img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  transition: color 0.2s;
+}
+
+/* FOOTER */
+.main-footer {
+  background: var(--color-bg-footer);
+  padding: 32px 0 0 0;
+  margin-top: 64px;
+}
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.footer-logo {
+  font-size: var(--font-size-lg);
+  color: var(--color-primary);
+  width: auto;
+  height: 50px;
+  margin-bottom: 0;
+}
+.footer-socials {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  margin-top: 0;
+}
+.footer-socials .icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  display: inline-block;
+  color: var(--color-primary);
+  vertical-align: middle;
+}
+.footer-divider {
+  border: none;
+  border-top: 2px solid var(--color-text-main);
+  margin: 24px 40px 0 40px;
+  width: auto;
+}
+.footer-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--gap-xl);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 24px 0 24px;
+}
+.footer-nav a {
+  text-decoration: none;
+  color: var(--color-primary);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  transition: color 0.2s;
+  padding-bottom: 16px;
+}
+.footer-nav a.active {
+  color: var(--color-primary);
+}
+.footer-nav a:hover {
+  color: var(--color-accent);
+}
+
+.nav-search-bar {
+  display: none;
+  position: absolute;
+  top: 70px;
+  right: 40px;
+  background: var(--color-bg-white);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 8px var(--color-shadow);
+  z-index: 1001;
+}
+.search-input {
+  font-size: var(--font-size-base);
+  padding: var(--space-xxs) var(--space-xs);
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-neutral-200);
+}
+.search-btn {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  border: none;
+  padding: var(--space-xxs) var(--space-sm);
+  border-radius: var(--radius-xs);
+  margin-left: var(--space-xs);
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.search-btn:hover {
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+}
+
+.button-primary {
+  background: var(--button-primary-bg);
+  color: var(--button-primary-color);
+  border: var(--button-primary-border);
+  border-radius: var(--button-primary-radius);
+  font-size: var(--button-primary-font-size);
+  font-weight: var(--button-primary-font-weight);
+  font-family: var(--font-base);
+  padding: 8px 32px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  box-shadow: none;
+  outline: none;
+}
+.button-primary:hover,
+.button-primary:focus {
+  background: var(--button-primary-hover-bg);
+  color: var(--button-primary-hover-color);
+  border: 2px solid var(--color-primary);
+}
+
+.button-secondary {
+  background: var(--button-secondary-bg);
+  color: var(--button-secondary-color);
+  border: var(--button-secondary-border);
+  border-radius: var(--button-secondary-radius);
+  font-size: var(--button-secondary-font-size);
+  font-weight: var(--button-secondary-font-weight);
+  font-family: var(--font-base);
+  padding: 8px 32px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  box-shadow: none;
+  outline: none;
+}
+.button-secondary:hover,
+.button-secondary:focus {
+  background: var(--button-secondary-hover-bg);
+  color: var(--button-secondary-hover-color);
 }
