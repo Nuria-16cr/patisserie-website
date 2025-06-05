@@ -84,12 +84,18 @@
               class="cart-item-img"
             />
             <div class="cart-item-info">
-              <div class="cart-item-title">Chocolate Cake</div>
-              <div class="cart-item-price">$60</div>
+              <div class="cart-item-title-row">
+                <div class="cart-item-title">Chocolate Cake</div>
+                <div class="cart-item-price">$60</div>
+              </div>
+              <div class="cart-item-qty-label">
+                Qty: <span class="qty-value">1</span>
+              </div>
               <div class="cart-item-qty">
                 <button class="qty-btn">-</button>
                 <span class="qty-value">1</span>
                 <button class="qty-btn">+</button>
+                <img src="assets/bin.svg" alt="Remove" class="cart-bin-icon" />
               </div>
             </div>
           </div>
@@ -100,12 +106,18 @@
               class="cart-item-img"
             />
             <div class="cart-item-info">
-              <div class="cart-item-title">Lemon Cheesecake</div>
-              <div class="cart-item-price">$55</div>
+              <div class="cart-item-title-row">
+                <div class="cart-item-title">Lemon Cheesecake</div>
+                <div class="cart-item-price">$55</div>
+              </div>
+              <div class="cart-item-qty-label">
+                Qty: <span class="qty-value">1</span>
+              </div>
               <div class="cart-item-qty">
                 <button class="qty-btn">-</button>
                 <span class="qty-value">1</span>
                 <button class="qty-btn">+</button>
+                <img src="assets/bin.svg" alt="Remove" class="cart-bin-icon" />
               </div>
             </div>
           </div>
@@ -116,12 +128,18 @@
               class="cart-item-img"
             />
             <div class="cart-item-info">
-              <div class="cart-item-title">Passionfruit Cake</div>
-              <div class="cart-item-price">$65</div>
+              <div class="cart-item-title-row">
+                <div class="cart-item-title">Passionfruit Cake</div>
+                <div class="cart-item-price">$65</div>
+              </div>
+              <div class="cart-item-qty-label">
+                Qty: <span class="qty-value">1</span>
+              </div>
               <div class="cart-item-qty">
                 <button class="qty-btn">-</button>
                 <span class="qty-value">1</span>
                 <button class="qty-btn">+</button>
+                <img src="assets/bin.svg" alt="Remove" class="cart-bin-icon" />
               </div>
             </div>
           </div>
@@ -129,17 +147,34 @@
         </div>
         <div class="cart-right">
           <h2 class="cart-section-title">PICK UP INFO</h2>
+          <div class="pickup-note">
+            <img
+              src="assets/warning.svg"
+              alt="Warning"
+              class="cart-warning-icon"
+            />
+            <div class="pickup-note-texts">
+              <span class="pickup-note-main"
+                ><b>Please note we do NOT do deliveries.</b></span
+              >
+              <span class="pickup-note-sub"
+                >Apologies for the inconvenience</span
+              >
+            </div>
+          </div>
           <div class="pickup-info">
             <div class="pickup-address">
+              <img
+                src="assets/location.svg"
+                class="cart-location-icon"
+                alt="Location"
+              />
               304 Charman Road, Cheltenham, Melbourne, Australia
             </div>
-            <div class="pickup-date">Tuesday 22 at 8:00 AM</div>
-          </div>
-          <div class="pickup-note">
-            <div class="pickup-note-main">
-              Please note we do NOT do deliveries.
+            <div class="pickup-date">
+              <img src="assets/clock.svg" class="cart-clock-icon" alt="Clock" />
+              Tuesday 22 at 8:00 AM
             </div>
-            <div class="pickup-note-sub">Apologies for the inconvenience</div>
           </div>
           <div class="order-comments">
             <div class="order-comments-title">Order Comments</div>
@@ -157,6 +192,7 @@
               <span>GST</span>
               <span>$9</span>
             </div>
+            <hr class="cart-summary-divider" />
             <div class="cart-summary-row total">
               <span>Order Total</span>
               <span>$189</span>
