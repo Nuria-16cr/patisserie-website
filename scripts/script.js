@@ -24,19 +24,31 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     searchBar.appendChild(dropdown);
 
-    // Toggle search bar
+    // Toggle search bar (show/hide)
+    let searchBarOpen = false;
     searchBtn.addEventListener("click", (e) => {
       e.stopPropagation();
-      searchBar.style.display = "flex";
-      searchInput.focus();
+      searchBarOpen = !searchBarOpen;
+      searchBar.style.display = searchBarOpen ? "flex" : "none";
+      if (searchBarOpen) {
+        searchInput.focus();
+      } else {
+        searchMsg.textContent = "";
+        dropdown.style.display = "none";
+      }
     });
 
     // Hide on outside click
     document.addEventListener("click", (e) => {
-      if (!searchBar.contains(e.target) && !searchBtn.contains(e.target)) {
+      if (
+        searchBarOpen &&
+        !searchBar.contains(e.target) &&
+        !searchBtn.contains(e.target)
+      ) {
         searchBar.style.display = "none";
         searchMsg.textContent = "";
         dropdown.style.display = "none";
+        searchBarOpen = false;
       }
     });
 
@@ -57,6 +69,49 @@ document.addEventListener("DOMContentLoaded", function () {
         ? "No products found."
         : "";
     });
+
+    // Move showDropdownResults here so it can access dropdown
+    function showDropdownResults(query) {
+      dropdown.innerHTML = "";
+      const { els: productElements, type } = getProductElements();
+      console.log(
+        "[Search Debug] Query:",
+        query,
+        "| Type:",
+        type,
+        "| Product elements found:",
+        productElements.length
+      );
+      if (!productElements.length) {
+        dropdown.innerHTML =
+          "<div style='padding:12px;color:#888;'>No products to search on this page.</div>";
+        dropdown.style.display = "block";
+        return;
+      }
+      if (!query) {
+        dropdown.style.display = "none";
+        return;
+      }
+      let count = 0;
+      productElements.forEach((el) => {
+        const { img, title, price, text } = extractProductInfo(el, type);
+        if (text.includes(query)) {
+          count++;
+          dropdown.innerHTML += `
+            <div class=\"dropdown-product-card\">\n              <div class=\"dropdown-product-img-wrap\">\n                <img src=\"${
+              img?.src || ""
+            }\" alt=\"${
+            img?.alt || ""
+          }\" />\n              </div>\n              <div class=\"dropdown-product-title\">${title}</div>\n              <div class=\"dropdown-product-price\">${price}</div>\n            </div>\n          `;
+        }
+      });
+      console.log("[Search Debug] Matches found:", count);
+      if (!count) {
+        dropdown.innerHTML =
+          "<div style='padding:12px;color:#888;'>No products found.</div>";
+      }
+      dropdown.style.display = "block";
+    }
   }
 
   function getProductElements() {
@@ -88,42 +143,6 @@ document.addEventListener("DOMContentLoaded", function () {
         text: el.textContent.toLowerCase(),
       };
     }
-  }
-
-  function showDropdownResults(query) {
-    dropdown.innerHTML = "";
-    const { els: productElements, type } = getProductElements();
-    if (!productElements.length) {
-      dropdown.innerHTML =
-        "<div style='padding:12px;color:#888;'>No products to search on this page.</div>";
-      dropdown.style.display = "block";
-      return;
-    }
-    if (!query) {
-      dropdown.style.display = "none";
-      return;
-    }
-    let count = 0;
-    productElements.forEach((el) => {
-      const { img, title, price, text } = extractProductInfo(el, type);
-      if (text.includes(query)) {
-        count++;
-        dropdown.innerHTML += `
-          <div class="dropdown-product-card">
-            <div class="dropdown-product-img-wrap">
-              <img src="${img?.src || ""}" alt="${img?.alt || ""}" />
-            </div>
-            <div class="dropdown-product-title">${title}</div>
-            <div class="dropdown-product-price">${price}</div>
-          </div>
-        `;
-      }
-    });
-    if (!count) {
-      dropdown.innerHTML =
-        "<div style='padding:12px;color:#888;'>No products found.</div>";
-    }
-    dropdown.style.display = "block";
   }
 
   // Product modal logic (all products)

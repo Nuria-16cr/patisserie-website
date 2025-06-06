@@ -266,7 +266,19 @@ textarea:focus {
 .nav-cart:hover {
   color: var(--color-accent);
 }
-.nav-search img,
+.nav-search-img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  color: var(--color-primary);
+  transition: color 0.2s, filter 0.2s;
+}
+.nav-search:hover .nav-search-img,
+.nav-search:focus .nav-search-img {
+  color: var(--color-accent);
+  filter: brightness(0) saturate(100%) invert(54%) sepia(60%) saturate(749%)
+    hue-rotate(2deg) brightness(95%) contrast(92%);
+}
 .nav-cart img {
   width: 24px;
   height: 24px;
@@ -574,3 +586,182 @@ textarea:focus {
     display: none !important;
   }
 }
+
+/* --- LAYOUT.CSS CONTENT START --- */
+@import url("colours.css");
+
+/* CSS Reset and Box Sizing */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: "Poppins", Arial, sans-serif;
+  background: var(--color-bg-main);
+  color: var(--color-text-main);
+  line-height: 1.5;
+}
+
+/* Navbar Layout */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 5vw;
+  background: var(--color-bg-main);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 1000;
+  box-shadow: none;
+  border: none;
+}
+.logo img {
+  height: 56px;
+}
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-shrink: 0;
+}
+.nav-links {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+.nav-icons {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  flex-shrink: 0;
+}
+.icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: block;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.nav-icons .icon:hover {
+  /* filter removed to allow color to control SVG fill */
+}
+
+/* Main Content Layout */
+main,
+.main,
+.about-main,
+.cart-main,
+.products-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  margin-top: 120px; /* space for navbar */
+}
+
+/* Section Titles */
+h1,
+.section-title {
+  font-family: "Red Hat Mono", "Poppins", Arial, sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 32px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+h2 {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 16px;
+}
+
+/* Footer Layout */
+.footer {
+  background: var(--color-bg-footer);
+  padding: 32px 0 0 0;
+  margin-top: 64px;
+}
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.footer-logo {
+  font-family: "Dancing Script", cursive;
+  font-size: 32px;
+  color: var(--color-primary);
+}
+.footer-socials {
+  display: flex;
+  gap: 24px;
+}
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  padding: 24px 0;
+}
+.footer-nav a {
+  text-decoration: none;
+  color: var(--color-primary);
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.footer-nav a.active,
+.footer-nav a:hover {
+  color: var(--color-accent);
+}
+
+/* Responsive Layout */
+@media (max-width: 900px) {
+  .navbar {
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 8px;
+  }
+  .logo img {
+    height: 32px;
+  }
+  .navbar-right {
+    gap: 24px;
+  }
+  main,
+  .main,
+  .about-main,
+  .cart-main,
+  .products-main {
+    margin-top: 80px;
+    padding: 0 8px;
+  }
+  h1,
+  .section-title {
+    font-size: 36px;
+  }
+  h2 {
+    font-size: 22px;
+  }
+  .footer-content {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .footer-nav {
+    gap: 24px;
+    font-size: 16px;
+  }
+}
+/* --- LAYOUT.CSS CONTENT END --- */
