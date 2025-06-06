@@ -199,16 +199,36 @@ document.addEventListener("DOMContentLoaded", function () {
   productModals.forEach((prod, i) => {
     const btn = readMoreBtns[prod.btnIndex];
     const modal = document.getElementById(prod.modalId);
-    if (!btn || !modal) return;
+    if (!modal) return;
     const modalOverlay = modal.querySelector(".product-modal-overlay");
     const modalClose = modal.querySelector(".product-modal-close");
-    btn.addEventListener("click", function (e) {
-      e.preventDefault();
-      closeAnyModal();
-      modal.style.display = "flex";
-      document.body.style.overflow = "hidden";
-      openModal = modal;
-    });
+    // Desktop: open modal on button click
+    if (btn) {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        closeAnyModal();
+        modal.style.display = "flex";
+        document.body.style.overflow = "hidden";
+        openModal = modal;
+      });
+    }
+    // Mobile: open modal on product-row click
+    if (window.matchMedia && window.matchMedia("(max-width: 480px)").matches) {
+      const productRows = document.querySelectorAll(
+        ".products-grid .product-row"
+      );
+      const row = productRows[prod.btnIndex];
+      if (row) {
+        row.addEventListener("click", function (e) {
+          // Prevent double open if modal already open
+          if (openModal === modal) return;
+          closeAnyModal();
+          modal.style.display = "flex";
+          document.body.style.overflow = "hidden";
+          openModal = modal;
+        });
+      }
+    }
     function closeModal() {
       modal.style.display = "none";
       document.body.style.overflow = "";

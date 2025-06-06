@@ -73,6 +73,28 @@
 
     <main>
       <section class="checkout-container">
+        <div class="checkout-right">
+          <h2 class="checkout-section-title">ORDER SUMMARY</h2>
+          <div class="order-summary-items">
+            <!-- JS will populate order items here -->
+          </div>
+          <div class="order-summary-totals">
+            <div class="order-summary-row">
+              <span>Subtotal</span>
+              <span>$180</span>
+            </div>
+            <div class="order-summary-row">
+              <span>GST</span>
+              <span>$9</span>
+            </div>
+            <hr class="order-summary-divider" />
+            <div class="order-summary-row total">
+              <span>Order Total</span>
+              <span>$189</span>
+            </div>
+          </div>
+          <a href="cart.html" class="back-to-cart-link">Back to cart</a>
+        </div>
         <div class="checkout-left">
           <h2 class="checkout-section-title">PAYMENT</h2>
           <form class="checkout-form" id="payment-form" novalidate>
@@ -171,28 +193,6 @@
               PLACE ORDER <span class="order-total-price">$189</span>
             </button>
           </form>
-        </div>
-        <div class="checkout-right">
-          <h2 class="checkout-section-title">ORDER SUMMARY</h2>
-          <div class="order-summary-items">
-            <!-- JS will populate order items here -->
-          </div>
-          <div class="order-summary-totals">
-            <div class="order-summary-row">
-              <span>Subtotal</span>
-              <span>$180</span>
-            </div>
-            <div class="order-summary-row">
-              <span>GST</span>
-              <span>$9</span>
-            </div>
-            <hr class="order-summary-divider" />
-            <div class="order-summary-row total">
-              <span>Order Total</span>
-              <span>$189</span>
-            </div>
-          </div>
-          <a href="cart.html" class="back-to-cart-link">Back to cart</a>
         </div>
       </section>
     </main>
