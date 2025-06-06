@@ -123,3 +123,92 @@ document.addEventListener("DOMContentLoaded", function () {
     dropdown.style.display = "block";
   }
 });
+//end of search bar
+
+// Payment form validation for checkout.html
+(function () {
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("payment-form");
+    if (!form) return;
+    const requiredFields = [
+      { id: "first-name", regex: /^[A-Za-z\s'-]+$/ },
+      { id: "last-name", regex: /^[A-Za-z\s'-]+$/ },
+      { id: "email", regex: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ },
+      { id: "phone", regex: /^[0-9\s()+-]{7,}$/ },
+      { id: "card-number", regex: /^\d{4} \d{4} \d{4} \d{4}$/ },
+      { id: "cardholder", regex: /^[A-Za-z\s'-]+$/ },
+      { id: "expiry", regex: /^(0[1-9]|1[0-2])\/(\d{2})$/ },
+      { id: "cvc", regex: /^\d{3}$/ },
+    ];
+    const terms = document.getElementById("terms");
+
+    // Immediate feedback on input
+    requiredFields.forEach((field) => {
+      const input = document.getElementById(field.id);
+      input.addEventListener("input", function () {
+        if (!field.regex.test(input.value.trim())) {
+          input.classList.add("input-error");
+        } else {
+          input.classList.remove("input-error");
+        }
+      });
+    });
+    if (terms) {
+      terms.addEventListener("change", function () {
+        if (!terms.checked) {
+          terms.classList.add("input-error");
+        } else {
+          terms.classList.remove("input-error");
+        }
+      });
+    }
+
+    form.addEventListener("submit", function (e) {
+      let valid = true;
+      requiredFields.forEach((field) => {
+        const input = document.getElementById(field.id);
+        if (!input.value.trim() || !field.regex.test(input.value.trim())) {
+          input.classList.add("input-error");
+          valid = false;
+        } else {
+          input.classList.remove("input-error");
+        }
+      });
+      if (!terms.checked) {
+        terms.classList.add("input-error");
+        terms.focus();
+        valid = false;
+      } else {
+        terms.classList.remove("input-error");
+      }
+      e.preventDefault();
+      if (valid) {
+        window.location.href = "confirmation.html";
+      }
+    });
+
+    // Card number auto-formatting (groups of 4)
+    const cardNumberInput = document.getElementById("card-number");
+    if (cardNumberInput) {
+      cardNumberInput.addEventListener("input", function (e) {
+        let value = cardNumberInput.value.replace(/\D/g, "");
+        value = value.substring(0, 16); // max 16 digits
+        let formatted = value.replace(/(.{4})/g, "$1 ").trim();
+        cardNumberInput.value = formatted;
+      });
+    }
+
+    // Expiry auto-formatting (MM/YY)
+    const expiryInput = document.getElementById("expiry");
+    if (expiryInput) {
+      expiryInput.addEventListener("input", function (e) {
+        let value = expiryInput.value.replace(/[^\d]/g, "");
+        if (value.length > 4) value = value.substring(0, 4);
+        if (value.length > 2) {
+          value = value.substring(0, 2) + "/" + value.substring(2);
+        }
+        expiryInput.value = value;
+      });
+    }
+  });
+})();

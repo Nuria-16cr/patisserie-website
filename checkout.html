@@ -86,7 +86,7 @@
       <section class="checkout-container">
         <div class="checkout-left">
           <h2 class="checkout-section-title">PAYMENT</h2>
-          <form class="checkout-form">
+          <form class="checkout-form" id="payment-form" novalidate>
             <div class="form-row">
               <div class="form-group">
                 <label for="first-name">First Name</label>
@@ -178,6 +178,9 @@
                 <label for="terms">I agree to the Terms & Conditions</label>
               </div>
             </div>
+            <button class="place-order-btn" type="submit">
+              PLACE ORDER <span class="order-total-price">$189</span>
+            </button>
           </form>
         </div>
         <div class="checkout-right">
@@ -235,7 +238,6 @@
               <span>$189</span>
             </div>
           </div>
-          <button class="place-order-btn">PLACE ORDER</button>
           <a href="cart.html" class="back-to-cart-link">Back to cart</a>
         </div>
       </section>
