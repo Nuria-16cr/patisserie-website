@@ -128,22 +128,6 @@ body {
   background: var(--color-primary);
   color: var(--color-text-inverse);
 }
-.read-more {
-  font-family: var(--font-base);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  background: var(--color-bg-white);
-  color: var(--color-accent);
-  border: 2px solid var(--color-accent);
-  border-radius: var(--radius-lg);
-  padding: var(--space-xs) var(--space-lg);
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s, border 0.2s;
-}
-.read-more:hover {
-  background: var(--color-accent);
-  color: var(--color-text-inverse);
-}
 .product-img {
   width: 140px;
   height: auto;

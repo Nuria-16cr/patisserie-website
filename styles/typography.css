@@ -141,9 +141,7 @@ a:focus {
 
 /* Button Text */
 .button,
-.add-to-cart,
-.read-more,
-.see-more {
+.add-to-cart {
   font-family: var(--font-base);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);

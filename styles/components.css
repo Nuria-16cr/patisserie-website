@@ -47,27 +47,6 @@
   color: var(--color-text-inverse);
 }
 
-.read-more,
-.see-more {
-  display: inline-block;
-  font-family: var(--font-base);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-accent);
-  background: var(--color-bg-white);
-  border: 2px solid var(--color-accent);
-  border-radius: var(--radius-lg);
-  padding: var(--space-xs) var(--space-lg);
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s, border 0.2s;
-  letter-spacing: 0.5px;
-}
-.read-more:hover,
-.see-more:hover {
-  background: var(--color-accent);
-  color: var(--color-text-inverse);
-}
-
 .tab {
   font-family: var(--font-base);
   font-size: var(--font-size-sm);
@@ -607,53 +586,6 @@ body {
   line-height: 1.5;
 }
 
-/* Navbar Layout */
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.5rem 5vw;
-  background: var(--color-bg-main);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  z-index: 1000;
-  box-shadow: none;
-  border: none;
-}
-.logo img {
-  height: 56px;
-}
-.navbar-right {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  flex-shrink: 0;
-}
-.nav-links {
-  display: flex;
-  gap: 40px;
-  align-items: center;
-}
-.nav-icons {
-  display: flex;
-  gap: 32px;
-  align-items: center;
-  flex-shrink: 0;
-}
-.icon {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
-  display: block;
-  cursor: pointer;
-  transition: color 0.2s;
-}
-.nav-icons .icon:hover {
-  /* filter removed to allow color to control SVG fill */
-}
-
 /* Main Content Layout */
 main,
 .main,
@@ -684,48 +616,6 @@ h2 {
   margin-bottom: 16px;
 }
 
-/* Footer Layout */
-.footer {
-  background: var(--color-bg-footer);
-  padding: 32px 0 0 0;
-  margin-top: 64px;
-}
-.footer-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-.footer-logo {
-  font-family: "Dancing Script", cursive;
-  font-size: 32px;
-  color: var(--color-primary);
-}
-.footer-socials {
-  display: flex;
-  gap: 24px;
-}
-.footer-nav {
-  display: flex;
-  justify-content: center;
-  gap: 48px;
-  padding: 24px 0;
-}
-.footer-nav a {
-  text-decoration: none;
-  color: var(--color-primary);
-  font-family: "Poppins", Arial, sans-serif;
-  font-size: 18px;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-.footer-nav a.active,
-.footer-nav a:hover {
-  color: var(--color-accent);
-}
-
 /* Responsive Layout */
 @media (max-width: 900px) {
   .navbar {
@@ -735,9 +625,6 @@ h2 {
   }
   .logo img {
     height: 32px;
-  }
-  .navbar-right {
-    gap: 24px;
   }
   main,
   .main,
