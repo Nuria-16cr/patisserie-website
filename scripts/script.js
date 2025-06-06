@@ -122,6 +122,121 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     dropdown.style.display = "block";
   }
+
+  // Product modal logic (all products)
+  const productModals = [
+    {
+      btnIndex: 0,
+      modalId: "product-modal",
+      qtyMinusId: "modal-qty-minus",
+      qtyPlusId: "modal-qty-plus",
+      qtyValueId: "modal-qty-value",
+    },
+    {
+      btnIndex: 1,
+      modalId: "product-modal-lemon-crepe",
+      qtyMinusId: "modal-qty-minus-lemon-crepe",
+      qtyPlusId: "modal-qty-plus-lemon-crepe",
+      qtyValueId: "modal-qty-value-lemon-crepe",
+    },
+    {
+      btnIndex: 2,
+      modalId: "product-modal-lemon-cheesecake",
+      qtyMinusId: "modal-qty-minus-lemon-cheesecake",
+      qtyPlusId: "modal-qty-plus-lemon-cheesecake",
+      qtyValueId: "modal-qty-value-lemon-cheesecake",
+    },
+    {
+      btnIndex: 3,
+      modalId: "product-modal-passionfruit-cake",
+      qtyMinusId: "modal-qty-minus-passionfruit-cake",
+      qtyPlusId: "modal-qty-plus-passionfruit-cake",
+      qtyValueId: "modal-qty-value-passionfruit-cake",
+    },
+    {
+      btnIndex: 4,
+      modalId: "product-modal-rum-cake",
+      qtyMinusId: "modal-qty-minus-rum-cake",
+      qtyPlusId: "modal-qty-plus-rum-cake",
+      qtyValueId: "modal-qty-value-rum-cake",
+    },
+    {
+      btnIndex: 5,
+      modalId: "product-modal-flan",
+      qtyMinusId: "modal-qty-minus-flan",
+      qtyPlusId: "modal-qty-plus-flan",
+      qtyValueId: "modal-qty-value-flan",
+    },
+    {
+      btnIndex: 6,
+      modalId: "product-modal-hazelnut-cake",
+      qtyMinusId: "modal-qty-minus-hazelnut-cake",
+      qtyPlusId: "modal-qty-plus-hazelnut-cake",
+      qtyValueId: "modal-qty-value-hazelnut-cake",
+    },
+    {
+      btnIndex: 7,
+      modalId: "product-modal-mouse-cake",
+      qtyMinusId: "modal-qty-minus-mouse-cake",
+      qtyPlusId: "modal-qty-plus-mouse-cake",
+      qtyValueId: "modal-qty-value-mouse-cake",
+    },
+  ];
+  const readMoreBtns = document.querySelectorAll(
+    ".product-actions .button-secondary"
+  );
+  let openModal = null;
+  function closeAnyModal() {
+    if (openModal) {
+      openModal.style.display = "none";
+      document.body.style.overflow = "";
+      openModal = null;
+    }
+  }
+  productModals.forEach((prod, i) => {
+    const btn = readMoreBtns[prod.btnIndex];
+    const modal = document.getElementById(prod.modalId);
+    if (!btn || !modal) return;
+    const modalOverlay = modal.querySelector(".product-modal-overlay");
+    const modalClose = modal.querySelector(".product-modal-close");
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      closeAnyModal();
+      modal.style.display = "flex";
+      document.body.style.overflow = "hidden";
+      openModal = modal;
+    });
+    function closeModal() {
+      modal.style.display = "none";
+      document.body.style.overflow = "";
+      if (openModal === modal) openModal = null;
+    }
+    modalOverlay.addEventListener("click", closeModal);
+    modalClose.addEventListener("click", closeModal);
+    document.addEventListener("keydown", function (e) {
+      if (modal.style.display === "flex" && e.key === "Escape") closeModal();
+    });
+    // Modal quantity selector logic
+    const qtyMinus = document.getElementById(prod.qtyMinusId);
+    const qtyPlus = document.getElementById(prod.qtyPlusId);
+    const qtyValue = document.getElementById(prod.qtyValueId);
+    let qty = 1;
+    function updateQty() {
+      qtyValue.textContent = qty;
+    }
+    if (qtyMinus && qtyPlus && qtyValue) {
+      qtyMinus.addEventListener("click", function () {
+        if (qty > 1) {
+          qty--;
+          updateQty();
+        }
+      });
+      qtyPlus.addEventListener("click", function () {
+        qty++;
+        updateQty();
+      });
+    }
+  });
 });
 //end of search bar
 

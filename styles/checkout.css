@@ -111,6 +111,13 @@
   flex-direction: column;
   gap: 4px;
 }
+.order-item-title-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
 .order-item-title {
   font-family: var(--font-base);
   font-size: 20px;
@@ -125,6 +132,8 @@
   font-size: 20px;
   font-weight: 600;
   color: var(--color-text-primary);
+  min-width: 48px;
+  text-align: right;
 }
 .order-summary-totals {
   margin: 24px 0 16px 0;

@@ -193,3 +193,212 @@ body {
     padding: 0 var(--space-xs);
   }
 }
+
+.product-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.product-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(30, 22, 13, 0.45);
+  z-index: 1;
+}
+.product-modal-content {
+  position: relative;
+  z-index: 2;
+  background: #f7f5ed;
+  border-radius: 40px;
+  box-shadow: 0 8px 48px rgba(205, 147, 75, 0.18);
+  max-width: 1048px;
+  width: 95vw;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.product-modal-close {
+  position: absolute;
+  top: 24px;
+  left: 32px;
+  right: auto;
+  background: none;
+  border: none;
+  font-size: 2.2rem;
+  color: var(--color-primary);
+  cursor: pointer;
+  z-index: 3;
+  transition: color 0.2s;
+}
+.product-modal-close:hover {
+  color: var(--color-accent);
+}
+.product-modal-body {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+  padding: 56px 0 48px 0;
+}
+.product-modal-img {
+  width: 350px;
+  height: 525px;
+  object-fit: cover;
+  border-radius: 0;
+  box-shadow: 0 2px 16px rgba(205, 147, 75, 0.1);
+  background: #f7f5ed;
+  flex-shrink: 0;
+  margin-right: 40px;
+}
+.product-modal-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 0;
+  min-width: 0;
+  max-width: 540px;
+  margin: 0 auto;
+}
+.product-modal-title-row {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  max-width: 600px;
+}
+.product-modal-title {
+  flex: 1;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+  text-align: left;
+}
+.product-modal-price {
+  font-size: 40px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+  text-align: right;
+  margin-left: 150px;
+  min-width: 120px;
+}
+.product-modal-desc {
+  font-size: 20px;
+  color: var(--color-text-primary);
+  margin-bottom: 32px;
+  line-height: 1.5;
+  text-align: left;
+}
+.product-modal-qty-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+.product-modal-qty-box {
+  display: flex;
+  align-items: center;
+  background: #d9d9d9;
+  border-radius: 0;
+  border: 1px solid #d9d9d9;
+  width: 123px;
+  height: 41px;
+  justify-content: space-between;
+  font-size: 24px;
+  font-family: var(--font-base);
+  font-weight: 400;
+  color: #0d0907;
+}
+.product-modal-qty-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  font-family: var(--font-base);
+  color: var(--color-text-primary);
+  width: 41px;
+  height: 41px;
+  cursor: pointer;
+  transition: background 0.2s;
+  border-radius: 20px;
+}
+.product-modal-qty-btn:active {
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+}
+.product-modal-qty-value {
+  background: var(--color-bg-white);
+  border-radius: 0;
+  padding: 2px 18px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e0d7c6;
+}
+.product-modal-add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 500;
+  padding: 12px 0;
+  border-radius: 40px;
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 8px;
+  margin-bottom: 0;
+  transition: background 0.2s;
+  font-family: var(--font-base);
+  letter-spacing: 1px;
+}
+.product-modal-add:hover {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+.product-modal-cart-icon {
+  margin-right: 12px;
+  vertical-align: middle;
+  display: inline-block;
+}
+@media (max-width: 900px) {
+  .product-modal-content {
+    max-width: 98vw;
+    border-radius: 24px;
+  }
+  .product-modal-body {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 0 24px 0;
+  }
+  .product-modal-img {
+    width: 100%;
+    height: 220px;
+    margin-bottom: 18px;
+    border-radius: 0;
+  }
+  .product-modal-info {
+    align-items: center;
+    text-align: center;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .product-modal-title,
+  .product-modal-price,
+  .product-modal-desc {
+    text-align: center;
+  }
+}
