@@ -251,11 +251,14 @@ body {
   padding: 56px 0 48px 0;
 }
 .product-modal-img {
-  width: 100%;
-  height: 60px;
+  width: 350px;
+  height: 500px;
   object-fit: cover;
   border-radius: 0;
   margin-bottom: 0;
+  margin-right: 24px;
+  flex-shrink: 0;
+  display: block;
 }
 .product-modal-info {
   display: flex;
