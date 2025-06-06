@@ -328,3 +328,10 @@
 .cart-right .cart-section-title {
   margin-top: -33px;
 }
+
+body.cart .product-header {
+  gap: 1.5rem !important;
+}
+body.cart .cake-img {
+  margin: 0 -4px 0 -4px !important;
+}

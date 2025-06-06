@@ -237,6 +237,99 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   });
+
+  // Home page modal logic for best sellers
+  if (
+    window.location.pathname.endsWith("index.html") ||
+    window.location.pathname === "/" ||
+    window.location.pathname === "/index.html"
+  ) {
+    const homeProductModals = [
+      {
+        btnIndex: 0, // Chocolate Cake
+        modalId: "product-modal",
+        qtyMinusId: "modal-qty-minus",
+        qtyPlusId: "modal-qty-plus",
+        qtyValueId: "modal-qty-value",
+      },
+      {
+        btnIndex: 1, // Lemon Crepe Cake
+        modalId: "product-modal-lemon-crepe",
+        qtyMinusId: "modal-qty-minus-lemon-crepe",
+        qtyPlusId: "modal-qty-plus-lemon-crepe",
+        qtyValueId: "modal-qty-value-lemon-crepe",
+      },
+      {
+        btnIndex: 2, // Lemon Cheesecake
+        modalId: "product-modal-lemon-cheesecake",
+        qtyMinusId: "modal-qty-minus-lemon-cheesecake",
+        qtyPlusId: "modal-qty-plus-lemon-cheesecake",
+        qtyValueId: "modal-qty-value-lemon-cheesecake",
+      },
+      {
+        btnIndex: 3, // Passionfruit Cake
+        modalId: "product-modal-passionfruit-cake",
+        qtyMinusId: "modal-qty-minus-passionfruit-cake",
+        qtyPlusId: "modal-qty-plus-passionfruit-cake",
+        qtyValueId: "modal-qty-value-passionfruit-cake",
+      },
+    ];
+    const seeMoreBtns = document.querySelectorAll(
+      ".best-seller-grid figure button"
+    );
+    let openModal = null;
+    function closeAnyModal() {
+      if (openModal) {
+        openModal.style.display = "none";
+        document.body.style.overflow = "";
+        openModal = null;
+      }
+    }
+    homeProductModals.forEach((prod, i) => {
+      const btn = seeMoreBtns[prod.btnIndex];
+      const modal = document.getElementById(prod.modalId);
+      if (!btn || !modal) return;
+      const modalOverlay = modal.querySelector(".product-modal-overlay");
+      const modalClose = modal.querySelector(".product-modal-close");
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        closeAnyModal();
+        modal.style.display = "flex";
+        document.body.style.overflow = "hidden";
+        openModal = modal;
+      });
+      function closeModal() {
+        modal.style.display = "none";
+        document.body.style.overflow = "";
+        if (openModal === modal) openModal = null;
+      }
+      modalOverlay.addEventListener("click", closeModal);
+      modalClose.addEventListener("click", closeModal);
+      document.addEventListener("keydown", function (e) {
+        if (modal.style.display === "flex" && e.key === "Escape") closeModal();
+      });
+      // Modal quantity selector logic
+      const qtyMinus = document.getElementById(prod.qtyMinusId);
+      const qtyPlus = document.getElementById(prod.qtyPlusId);
+      const qtyValue = document.getElementById(prod.qtyValueId);
+      let qty = 1;
+      function updateQty() {
+        qtyValue.textContent = qty;
+      }
+      if (qtyMinus && qtyPlus && qtyValue) {
+        qtyMinus.addEventListener("click", function () {
+          if (qty > 1) {
+            qty--;
+            updateQty();
+          }
+        });
+        qtyPlus.addEventListener("click", function () {
+          qty++;
+          updateQty();
+        });
+      }
+    });
+  }
 });
 //end of search bar
 

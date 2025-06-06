@@ -36,3 +36,9 @@
 .product-header {
   margin-bottom: 8rem !important;
 }
+body.about .product-header {
+  gap: 1.5rem !important;
+}
+body.about .cake-img {
+  margin: 0 -4px 0 -4px !important;
+}
