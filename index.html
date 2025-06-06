@@ -18,7 +18,12 @@
           />
         </a>
       </div>
-      <div class="nav-right">
+      <button class="nav-hamburger" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-right nav-links">
         <a href="index.html" class="active">Home</a>
         <a href="product.html">Products</a>
         <a href="about.html">About us</a>
@@ -87,7 +92,7 @@
           <h1 class="hero-title-grid">DELICIOUS<br />CAKES</h1>
         </div>
         <div class="hero-right">
-          <p class="hero-desc-grid">
+          <p class="hero-desc-grid hero-desc-mobile-hide">
             Each cake baked to order by our professional pastry chef, made with
             premium ingredients.
           </p>
@@ -117,10 +122,11 @@
         <div class="section-header-row">
           <h2>BEST SELLERS</h2>
           <button
-            class="button-ghost-right"
+            class="button-ghost-right view-all-btn"
             onclick="window.location.href='product.html'"
           >
-            View All Products
+            <span class="view-all-mobile">View All</span
+            ><span class="view-all-desktop"> Products</span>
           </button>
         </div>
         <div class="best-seller-grid gap-xl grid-4">
