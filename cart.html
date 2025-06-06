@@ -77,72 +77,6 @@
       <section class="cart-container">
         <div class="cart-left">
           <h2 class="cart-section-title">YOUR CART</h2>
-          <div class="cart-item">
-            <img
-              src="assets/chocolate-cake.jpg"
-              alt="Chocolate Cake"
-              class="cart-item-img"
-            />
-            <div class="cart-item-info">
-              <div class="cart-item-title-row">
-                <div class="cart-item-title">Chocolate Cake</div>
-                <div class="cart-item-price">$60</div>
-              </div>
-              <div class="cart-item-qty-label">
-                Qty: <span class="qty-value">1</span>
-              </div>
-              <div class="cart-item-qty">
-                <button class="qty-btn">-</button>
-                <span class="qty-value">1</span>
-                <button class="qty-btn">+</button>
-                <img src="assets/bin.svg" alt="Remove" class="cart-bin-icon" />
-              </div>
-            </div>
-          </div>
-          <div class="cart-item">
-            <img
-              src="assets/lemon-cheesecake.jpg"
-              alt="Lemon Cheesecake"
-              class="cart-item-img"
-            />
-            <div class="cart-item-info">
-              <div class="cart-item-title-row">
-                <div class="cart-item-title">Lemon Cheesecake</div>
-                <div class="cart-item-price">$55</div>
-              </div>
-              <div class="cart-item-qty-label">
-                Qty: <span class="qty-value">1</span>
-              </div>
-              <div class="cart-item-qty">
-                <button class="qty-btn">-</button>
-                <span class="qty-value">1</span>
-                <button class="qty-btn">+</button>
-                <img src="assets/bin.svg" alt="Remove" class="cart-bin-icon" />
-              </div>
-            </div>
-          </div>
-          <div class="cart-item">
-            <img
-              src="assets/passionfruit-cake.jpg"
-              alt="Passionfruit Cake"
-              class="cart-item-img"
-            />
-            <div class="cart-item-info">
-              <div class="cart-item-title-row">
-                <div class="cart-item-title">Passionfruit Cake</div>
-                <div class="cart-item-price">$65</div>
-              </div>
-              <div class="cart-item-qty-label">
-                Qty: <span class="qty-value">1</span>
-              </div>
-              <div class="cart-item-qty">
-                <button class="qty-btn">-</button>
-                <span class="qty-value">1</span>
-                <button class="qty-btn">+</button>
-                <img src="assets/bin.svg" alt="Remove" class="cart-bin-icon" />
-              </div>
-            </div>
-          </div>
           <button
             class="add-more-btn"
             onclick="window.location.href='product.html'"
@@ -178,7 +112,11 @@
             </div>
             <div class="pickup-date">
               <img src="assets/clock.svg" class="cart-clock-icon" alt="Clock" />
-              Tuesday 22 at 8:00 AM
+              <input
+                type="datetime-local"
+                id="pickup-date-input"
+                style="margin-left: 10px"
+              />
             </div>
           </div>
           <div class="order-comments">
@@ -241,4 +179,5 @@
     </footer>
   </body>
   <script src="scripts/script.js"></script>
+  <script src="scripts/cartLogic.js"></script>
 </html>

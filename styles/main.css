@@ -11,3 +11,17 @@
 @import url("search.css");
 @import url("checkout.css");
 @import url("confirmation.css");
+
+.cart-badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: #cd934b;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 2px 6px;
+  z-index: 10;
+  display: inline-block;
+}

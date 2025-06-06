@@ -260,9 +260,8 @@
 .cart-bin-icon {
   width: 28px;
   height: 28px;
-  margin-left: 220px;
   cursor: pointer;
-  vertical-align: middle;
+  margin-left: auto;
   transition: filter 0.2s;
 }
 .cart-bin-icon:hover {
@@ -334,4 +333,13 @@ body.cart .product-header {
 }
 body.cart .cake-img {
   margin: 0 -4px 0 -4px !important;
+}
+
+.cart-empty-msg {
+  text-align: center;
+  color: #b7a07a;
+  font-size: 20px;
+  font-family: var(--font-base);
+  margin: 32px 0 0 0;
+  font-weight: 500;
 }
