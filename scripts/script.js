@@ -8,53 +8,56 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (navRight) navRight.style.position = "relative";
 
-  // Feedback message
-  const searchMsg = Object.assign(document.createElement("div"), {
-    className: "search-message",
-    style: "margin:4px 0 0 0;color:red;font-size:0.9em;",
-  });
-  searchBar.appendChild(searchMsg);
+  // Only run search bar logic if searchBtn exists
+  if (searchBtn && searchBar && searchInput) {
+    // Feedback message
+    const searchMsg = Object.assign(document.createElement("div"), {
+      className: "search-message",
+      style: "margin:4px 0 0 0;color:red;font-size:0.9em;",
+    });
+    searchBar.appendChild(searchMsg);
 
-  // Dropdown for search results
-  const dropdown = Object.assign(document.createElement("div"), {
-    className: "search-dropdown",
-    style: "display:none;",
-  });
-  searchBar.appendChild(dropdown);
+    // Dropdown for search results
+    const dropdown = Object.assign(document.createElement("div"), {
+      className: "search-dropdown",
+      style: "display:none;",
+    });
+    searchBar.appendChild(dropdown);
 
-  // Toggle search bar
-  searchBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    searchBar.style.display = "flex";
-    searchInput.focus();
-  });
+    // Toggle search bar
+    searchBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      searchBar.style.display = "flex";
+      searchInput.focus();
+    });
 
-  // Hide on outside click
-  document.addEventListener("click", (e) => {
-    if (!searchBar.contains(e.target) && !searchBtn.contains(e.target)) {
-      searchBar.style.display = "none";
+    // Hide on outside click
+    document.addEventListener("click", (e) => {
+      if (!searchBar.contains(e.target) && !searchBtn.contains(e.target)) {
+        searchBar.style.display = "none";
+        searchMsg.textContent = "";
+        dropdown.style.display = "none";
+      }
+    });
+
+    // Show dropdown as user types
+    searchInput.addEventListener("input", () => {
+      showDropdownResults(searchInput.value.trim().toLowerCase());
       searchMsg.textContent = "";
-      dropdown.style.display = "none";
-    }
-  });
+    });
 
-  // Show dropdown as user types
-  searchInput.addEventListener("input", () => {
-    showDropdownResults(searchInput.value.trim().toLowerCase());
-    searchMsg.textContent = "";
-  });
-
-  // Show dropdown on submit
-  searchBar.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const query = searchInput.value.trim().toLowerCase();
-    showDropdownResults(query);
-    searchMsg.textContent = !query
-      ? ""
-      : dropdown.innerHTML === ""
-      ? "No products found."
-      : "";
-  });
+    // Show dropdown on submit
+    searchBar.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const query = searchInput.value.trim().toLowerCase();
+      showDropdownResults(query);
+      searchMsg.textContent = !query
+        ? ""
+        : dropdown.innerHTML === ""
+        ? "No products found."
+        : "";
+    });
+  }
 
   function getProductElements() {
     let els = Array.from(document.querySelectorAll(".best-seller-grid figure"));
@@ -336,12 +339,27 @@ document.addEventListener("DOMContentLoaded", function () {
   if (hamburger && navLinks) {
     hamburger.addEventListener("click", function () {
       navLinks.classList.toggle("active");
+      document.body.style.overflow = navLinks.classList.contains("active")
+        ? "hidden"
+        : "";
     });
     // Optional: close menu when a link is clicked
     navLinks.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         navLinks.classList.remove("active");
+        document.body.style.overflow = "";
       });
+    });
+    // Close menu when clicking outside nav-links
+    document.addEventListener("click", function (e) {
+      if (
+        navLinks.classList.contains("active") &&
+        !navLinks.contains(e.target) &&
+        !hamburger.contains(e.target)
+      ) {
+        navLinks.classList.remove("active");
+        document.body.style.overflow = "";
+      }
     });
   }
 });

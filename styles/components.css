@@ -412,3 +412,165 @@ textarea:focus {
   background: var(--button-secondary-hover-bg);
   color: var(--button-secondary-hover-color);
 }
+
+@media (max-width: 430px) {
+  /* NAVIGATION (Hamburger, menu, etc.) */
+  .nav-hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 16px;
+    top: 10px;
+    z-index: 1002;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 28px;
+    height: 4px;
+    background: var(--color-primary);
+    margin: 4px 0;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+  .main-nav {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0 8px 8px;
+    width: 100%;
+    background: var(--color-bg-main);
+    z-index: 1001;
+  }
+  .nav-left {
+    flex: 1;
+    min-width: 0;
+  }
+  .nav-left img {
+    height: 32px !important;
+    width: auto !important;
+  }
+  .nav-links {
+    position: fixed !important;
+    top: 16px !important;
+    right: 16px !important;
+    left: auto !important;
+    width: 240px !important;
+    height: auto;
+    background: var(--color-bg-main) !important;
+    z-index: 2000 !important;
+    box-shadow: 0 4px 24px var(--color-shadow);
+    border-radius: 0 0 16px 16px;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 0 16px 24px !important;
+    margin: 0 !important;
+    transition: none;
+  }
+  .nav-links.active {
+    display: flex !important;
+  }
+  .nav-links a,
+  .nav-links button,
+  .nav-links form {
+    margin: 8px 24px;
+    font-size: 18px;
+    text-align: left;
+    width: auto;
+  }
+  .nav-search-bar {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    right: 0 !important;
+    left: 0 !important;
+  }
+  .main-nav .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-hamburger {
+    display: flex;
+  }
+  /* FOOTER */
+  .main-footer {
+    width: 100vw !important;
+    min-width: 0 !important;
+    background: var(--color-bg-footer) !important;
+    padding: 32px 0 0 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+  }
+  .footer-content {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 16px !important;
+    max-width: 100vw !important;
+    padding: 0 0 0 0 !important;
+  }
+  .footer-logo {
+    font-size: 2.2rem !important;
+    text-align: center !important;
+    width: 100% !important;
+    margin-bottom: 12px !important;
+  }
+  .footer-divider {
+    width: 90vw !important;
+    margin: 16px auto !important;
+    border: none !important;
+    border-top: 2px solid var(--color-neutral-900) !important;
+  }
+  .footer-socials {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 20px !important;
+    width: 100% !important;
+    margin-bottom: 12px !important;
+  }
+  .footer-socials .icon {
+    width: 44px !important;
+    height: 44px !important;
+    display: inline-block !important;
+  }
+  .footer-nav {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 32px !important;
+    width: 100% !important;
+    padding: 0 0 24px 0 !important;
+    font-size: 1.2rem !important;
+  }
+  .footer-nav a {
+    color: var(--color-primary) !important;
+    font-family: var(--font-base) !important;
+    font-size: 1.2rem !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
+
+@media (min-width: 431px) {
+  .view-all-desktop {
+    display: inline !important;
+  }
+  .view-all-mobile {
+    display: none !important;
+  }
+}

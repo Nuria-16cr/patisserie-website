@@ -18,7 +18,29 @@
           />
         </a>
       </div>
-      <div class="nav-right">
+      <button class="nav-hamburger" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-right nav-links">
+        <form
+          class="nav-search-bar"
+          style="
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 24px;
+            max-width: 350px;
+            min-width: 260px;
+            z-index: 1001;
+            background: none;
+            box-shadow: none;
+            border: none;
+          "
+        >
+          <input type="text" placeholder="Search..." class="search-input" />
+        </form>
         <a href="index.html">Home</a>
         <a href="product.html">Products</a>
         <a href="about.html">About us</a>
