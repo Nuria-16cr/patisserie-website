@@ -74,7 +74,7 @@
       if (addBtn) {
         addBtn.addEventListener("click", () => {
           const { name, price, img } = extractProductInfoFromRow(row);
-          addToCart({ name, price, img, qty: 1 });
+          addToCart({ name, price, img, qty: 1 }, addBtn);
         });
       }
     });
@@ -86,12 +86,12 @@
           const modal = btn.closest(".product-modal");
           if (!modal) return;
           const { name, price, img, qty } = extractProductInfoFromModal(modal);
-          addToCart({ name, price, img, qty });
+          addToCart({ name, price, img, qty }, btn);
         });
       });
   }
 
-  function addToCart({ name, price, img, qty }) {
+  function addToCart({ name, price, img, qty }, btn) {
     if (!name) return;
     const cart = getCart();
     let item = findCartItem(cart, name);
@@ -102,13 +102,18 @@
     }
     setCart(cart);
     updateCartUI();
-    showCartAddedFeedback(name);
+    showCartAddedFeedback(name, btn);
   }
 
-  function showCartAddedFeedback(name) {
-    // Optionally show a toast or highlight the cart icon
-    // For now, just a simple alert (replace with better UI as needed)
-    // alert(`${name} added to cart!`);
+  function showCartAddedFeedback(name, btn) {
+    if (!btn) return;
+    const original = btn.innerHTML;
+    btn.innerHTML = "✔ Item added to cart";
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.innerHTML = original;
+      btn.disabled = false;
+    }, 1500);
   }
 
   // --- Cart Page Rendering ---
